@@ -38,10 +38,12 @@ const RootQueryType = new GraphQLObjectType({
             }
         },
         tasks: {
-            type: GraphQLList(TaskType)
+            type: GraphQLList(TaskType),
+            type: GraphQLList(ProjectType)
         },
         projects: {
-
+            type: GraphQLList(TaskType),
+            type: GraphQLList(ProjectType)
         },
     },
     resolve(parent, args) {
