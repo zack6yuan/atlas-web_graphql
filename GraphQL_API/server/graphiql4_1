@@ -1,0 +1,7 @@
+{ # Might need work
+    task(id: "1") {
+        title
+        weight
+        description
+    }
+}
