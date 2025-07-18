@@ -34,8 +34,10 @@ const RootQueryType = new GraphQLObjectType({
                 type: GraphQLString
             }
         }
+    },
+    resolve(parent, args) {
+        return undefined
     }
-    // add the resolver function here i'm pretty sure
 })
 
 module.exports = new GraphQLSchema({
