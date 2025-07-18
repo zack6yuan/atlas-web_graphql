@@ -1,4 +1,5 @@
 #!/usr/bin/node
+// NEEDS TO ADD GRAPHIQL = TRUE IN THE CONSTRUCTOR
 const {
     graphql,
     GraphQLObjectType,
@@ -6,6 +7,8 @@ const {
     GraphQLInt,
     GraphQLSchema
 } = require('graphql');
+
+const { lodash } = require('lodash')
 
 const TaskType = new GraphQLObjectType({
     name: 'Task',
@@ -36,7 +39,20 @@ const RootQueryType = new GraphQLObjectType({
         }
     },
     resolve(parent, args) {
-        return undefined
+        const tasks = [
+            {
+                id: 1,
+                title: `Create your first webpage`,
+                weight: 1,
+                description: `Create your first HTML file 0-index.html with: -Add the doctype on the first line (without any comment) -After the doctype, open and close an html tag Open your file in your browser (the page should be blank)`
+            },
+            {
+                id: 1,
+                title: `Structure your webpage`,
+                weight: 1,
+                description: `Copy the content of 0-index.html into 1-index.html Create the head and body sections inside the html tag, create the head and body tags (empty) in this order`
+            },
+        ]
     }
 })
 
