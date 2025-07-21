@@ -41,11 +41,9 @@ const RootQueryType = new GraphQLObjectType({
             }
         },
         tasks: {
-            type: GraphQLList(TaskType),
-            type: GraphQLList(ProjectType)
+            type: GraphQLList(TaskType)
         },
         projects: {
-            type: GraphQLList(TaskType),
             type: GraphQLList(ProjectType)
         },
     },
