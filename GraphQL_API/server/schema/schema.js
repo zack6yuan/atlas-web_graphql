@@ -25,6 +25,9 @@ const TaskType = new GraphQLObjectType({
         description: {
             type: GraphQLString
         },
+    },
+    projects: {
+        type: TaskType
     }
 })
 
@@ -46,15 +49,17 @@ const RootQueryType = new GraphQLObjectType({
             type: GraphQLList(ProjectType)
         },
     },
-    resolve(parent, args) {
+    resolve: (parent, args) => {
         const tasks = [
             {
+                projectID: 1,
                 id: 1,
                 title: `Create your first webpage`,
                 weight: 1,
                 description: `Create your first HTML file 0-index.html with: -Add the doctype on the first line (without any comment) -After the doctype, open and close an html tag Open your file in your browser (the page should be blank)`
             },
             {
+                projectID: 1,
                 id: 1,
                 title: `Structure your webpage`,
                 weight: 1,
@@ -80,7 +85,7 @@ const ProjectType = new GraphQLObjectType({
             type: GraphQLString
         },
     },
-    resolve(parent, args) {
+    resolve: (parent, args) => {
         const projects = [
             {
                 id: 1,
