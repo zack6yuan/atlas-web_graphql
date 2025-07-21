@@ -41,12 +41,6 @@ const RootQueryType = new GraphQLObjectType({
                 type: GraphQLString
             }
         },
-        tasks: {
-            type: GraphQLList(TaskType)
-        },
-        projects: {
-            type: GraphQLList(ProjectType)
-        },
     },
     resolve: (parent, args) => {
         const tasks = [
