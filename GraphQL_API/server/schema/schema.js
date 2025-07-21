@@ -5,7 +5,8 @@ const {
     GraphQLObjectType,
     GraphQLString,
     GraphQLInt,
-    GraphQLSchema
+    GraphQLSchema,
+    GraphQLNonNull
 } = require('graphql');
 
 const { lodash } = require('lodash')
@@ -98,6 +99,34 @@ const ProjectType = new GraphQLObjectType({
                 description: `Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS and JavaScript design templates for typography, forms, buttons, navigation, and other interface components.`
             },
         ]
+    }
+})
+
+const Mutation = new GraphQLObjectType({
+    name: "Mutation",
+    fields: {
+        id: {
+            type: ProjectType
+        },
+        args: {
+            title: {
+                type: GraphQLNonNull(GraphQLString)
+            },
+            weight: {
+                type: GraphQLNonNull(GraphQLInt)
+            },
+            description: {
+                type: GraphQLNonNull(GraphQLString)
+            }
+        }
+    },
+    resolve: (parent, args) => {
+        const results = {
+            "title": title,
+            "weight": weight,
+            "description": description
+        }
+        return res.status(200).send(results);
     }
 })
 

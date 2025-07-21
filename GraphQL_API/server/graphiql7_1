@@ -1,0 +1,7 @@
+{
+    addProject: {
+        title
+        weight
+        description
+    }
+}

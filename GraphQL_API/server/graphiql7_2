@@ -1,0 +1,7 @@
+{
+    addTask: {
+        title
+        weight
+        description
+    }
+}
